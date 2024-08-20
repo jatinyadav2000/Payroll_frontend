@@ -1,0 +1,13 @@
+.custom-btn {
+    color: #02edfa;
+    background-color: #01212E;
+    border-color: #02edfa;
+    font-weight: 600;
+  }
+  
+  .custom-btn:hover {
+    color: #01212E !important;          /* Text color on hover */
+    background-color: #02edfa !important;  /* Background color on hover */
+    border-color: #01212E !important;  /* Border color on hover */
+  }
+  

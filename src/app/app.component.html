@@ -1,0 +1,37 @@
+<!-- <app-login></app-login>   -->
+ <!-- <app-dashboard></app-dashboard> -->
+ 
+<!-- <app-update-employee></app-update-employee> -->
+
+<!-- <nav *ngIf="authService.isAdmin()">
+   
+    <app-navbar></app-navbar>
+ 
+    <div class="row">
+      <div class="col-md-3">
+        <app-sidebar></app-sidebar>
+      </div>
+      <div class="col-md-9">
+        <router-outlet>
+    
+        </router-outlet>
+      </div>
+    </div>
+    
+  </nav>
+  <nav *ngIf="authService.isEmployee()">
+    
+  </nav>
+  <router-outlet></router-outlet>
+   -->
+  <!-- <app-admin></app-admin> -->
+  <!-- <app-create></app-create> -->
+  <nav *ngIf="authService.isAdmin()">
+    <!-- Admin Navigation -->
+    
+  </nav>
+  <nav *ngIf="authService.isEmployee()">
+    <!-- Employee Navigation -->
+   
+  </nav>
+  <router-outlet></router-outlet>

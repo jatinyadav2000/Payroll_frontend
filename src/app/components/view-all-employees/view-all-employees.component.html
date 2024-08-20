@@ -1,0 +1,86 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6 col-lg-9">
+      <div class="wrapper" style="padding: 20px; border-radius: 8px;">
+        <h2>Update Employee</h2>
+        <hr />
+        <form #updateForm="ngForm" (ngSubmit)="onSubmit(updateForm)">
+          <div class="form-group">
+            <label for="employeeId">Employee Id</label>
+            <input
+              type="text"
+              id="employeeId"
+              class="form-control"
+              name="employeeId"
+              [(ngModel)]="userData.employeeId"
+              #employeeId="ngModel"
+              required
+              [class.is-invalid]="employeeId.invalid && employeeId.touched"
+            />
+            <small class="text-danger" [class.d-none]="employeeId.valid || employeeId.untouched">
+              This is required field
+            </small>
+          </div>
+
+          <div class="form-group">
+            <label for="role">Role</label>
+            <input
+              type="text"
+              id="role"
+              class="form-control"
+              name="role"
+              [(ngModel)]="userData.role"
+              required
+              #role="ngModel"
+              pattern=".*\S.*"
+              [class.is-invalid]="role.invalid && role.touched"
+            />
+            <div *ngIf="role.errors && role.touched">
+              <small class="text-danger" *ngIf="role.errors['required']">Role is required</small>
+              <small class="text-danger" *ngIf="role.errors['pattern']">Role must be valid</small>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="salary">Salary</label>
+            <input
+              type="text"
+              id="salary"
+              class="form-control"
+              name="salary"
+              [(ngModel)]="userData.salary"
+              required
+              #salary="ngModel"
+              pattern="^\d+$"
+              [class.is-invalid]="salary.invalid && salary.touched"
+            />
+            <div *ngIf="salary.errors && salary.touched">
+              <small class="text-danger" *ngIf="salary.errors['required']">Salary is required</small>
+              <small class="text-danger" *ngIf="salary.errors['pattern']">Salary must be a valid number</small>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="manager">Manager</label>
+            <select
+              id="manager"
+              class="form-control"
+              [(ngModel)]="userData.manager"
+              name="manager"
+            >
+              <option *ngFor="let manager of managers" [value]="manager">{{ manager }}</option>
+            </select>
+          </div>
+
+          <input
+            type="submit"
+            value="Update"
+            class="btn btn-primary btn-block"
+            [disabled]="updateForm.invalid"
+          />
+          <br />
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
